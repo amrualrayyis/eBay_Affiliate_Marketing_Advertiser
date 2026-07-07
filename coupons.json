@@ -1,0 +1,6 @@
+[
+  { "category": "Fashion", "code": "STYLEDEAL20", "discount": "20% OFF", "note": "Valid on select fashion & accessories" },
+  { "category": "Tech", "code": "SMARTWINS", "discount": "20% OFF", "note": "Valid on tech and home gadgets" },
+  { "category": "Home", "code": "FRESHFIND20", "discount": "20% OFF", "note": "Valid on home and refurbished items" },
+  { "category": "General", "code": "NEWBIE5", "discount": "$5 OFF", "note": "Valid for first-time customers" }
+]

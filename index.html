@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>littlniss | Style Studio Hub</title>
+    <style>
+        :root { --primary: #6a5acd; --dark: #111; --light: #fdfdfd; --gray: #eee; }
+        body { font-family: 'Georgia', serif; background: var(--light); color: #333; margin: 0; padding: 20px; line-height: 1.6; }
+        header { text-align: center; padding: 60px 0; background: #fff; border-bottom: 1px solid var(--gray); margin-bottom: 50px; }
+        h1 { font-family: 'Times New Roman', serif; color: var(--dark); margin: 0; font-size: 3.5em; font-weight: normal; letter-spacing: -2px; }
+        p.subtitle { color: #666; font-size: 1em; margin-top: 10px; text-transform: uppercase; letter-spacing: 3px; }
+        
+        .container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 30px; }
+        .card { background: #fff; border: 1px solid var(--gray); transition: all 0.3s ease; position: relative; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        
+        .product-img { width: 100%; height: 300px; object-fit: cover; border-bottom: 1px solid #f9f9f9; }
+        .niche-badge { position: absolute; top: 15px; left: 15px; padding: 4px 12px; background: var(--dark); color: #fff; font-size: 0.65em; text-transform: uppercase; font-weight: bold; z-index: 10; }
+        
+        .card-content { padding: 25px; }
+        h3 { font-family: 'Times New Roman', serif; margin: 0 0 10px 0; font-size: 1.4em; color: var(--dark); height: 2.4em; overflow: hidden; }
+        .price { font-size: 1.2em; color: var(--primary); margin-bottom: 15px; font-weight: bold; }
+        
+        .action-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; }
+        .btn { padding: 10px; text-align: center; text-decoration: none; text-transform: uppercase; font-size: 0.75em; font-weight: bold; cursor: pointer; border: 1px solid var(--dark); transition: 0.2s; }
+        .btn-primary { background: var(--dark); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--dark); }
+        .btn:hover { opacity: 0.8; }
+
+        .pin-wrap { display: flex; flex-direction: column; gap: 5px; }
+        .board-hint { font-size: 0.6em; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+        .board-hint b { color: var(--primary); }
+
+        .ai-studio { background: #f9f9fb; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px dashed #ccc; }
+        .studio-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .gen-btn { background: var(--primary); color: #fff; border: none; padding: 5px 10px; font-size: 0.7em; cursor: pointer; text-transform: uppercase; font-weight: bold; }
+        .ai-studio h4 { margin: 0; font-size: 0.85em; text-transform: uppercase; color: #777; }
+        .prompt-box, .caption-box { margin-bottom: 15px; }
+        .prompt-box label, .caption-box label { display: block; font-size: 0.7em; font-weight: bold; color: #999; margin-bottom: 5px; }
+        .copy-wrap { display: flex; gap: 5px; align-items: center; }
+        code { flex-grow: 1; font-size: 0.75em; background: #fff; padding: 5px; border: 1px solid #ddd; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+        .ai-studio button { font-size: 0.65em; padding: 4px 8px; background: #eee; border: 1px solid #ccc; cursor: pointer; }
+        .ai-studio p { font-size: 0.8em; margin: 5px 0; font-style: italic; color: #444; }
+
+        .blog-preview { font-size: 0.9em; color: #666; height: 4.5em; overflow: hidden; margin-bottom: 15px; }
+        .date { font-size: 0.65em; color: #aaa; text-transform: uppercase; }
+    </style>
+    <script>
+        function copyToClipboard(id) {
+            const code = document.getElementById(id);
+            navigator.clipboard.writeText(code.innerText);
+            alert('Prompt copied!');
+        }
+        function copyText(id) {
+            const text = document.getElementById(id);
+            navigator.clipboard.writeText(text.innerText);
+            alert('Caption copied!');
+        }
+        function pinToPinterest(url, img, desc) {
+            const fullImgUrl = img.startsWith('http') ? img : (window.location.origin + '/' + img);
+            const pinUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(fullImgUrl)}&description=${encodeURIComponent(desc)}`;
+            window.open(pinUrl, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>littlniss</h1>
+        <p class="subtitle">AI Creative Studio & Style Hub</p>
+    </header>
+    <div class="container">
+        
+      <div class="card">
+        <div class="niche-badge">Professional Bags</div>
+        <img src="posts/frame1_v1_365989684072_0_branded.jpg" class="product-img" alt="Laptop Tote Bag for Women,Leather Work Bag, Waterproof Business Teacher Bag,L...">
+        <div class="card-content">
+            <h3>Laptop Tote Bag for Women,Leather Work Bag, Waterproof Business Teacher Bag,L...</h3>
+            <p class="price">42.76 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/2a4o7ak8" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/2a4o7ak8', 'https://i.ibb.co/YT0YB8dt/f2c6c7561258.jpg', 'The Ultimate Elegant Waterproof Laptop Work Tote')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Professional Style</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">A high-end editorial product photograph of a premium cognac leather laptop tote bag, minimalist aesthetic, soft natural morning sunlight casting elegant shadows on a marble tabletop, neutral color palette, 8k resolution, photorealistic, cinematic lighting, shallow depth of field.</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic 5-second slow-motion reveal: a close-up tracking shot gliding over the high-quality stitching and smooth texture of a luxury leather tote bag, soft focus background of a sophisticated home office, elegant lighting.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">The work bag you’ve been waiting for. Waterproof, spacious, and chic. 👜💻✨ #WorkBag #TeacherLife #MinimalistStyle #OfficeOOTD #littlniss #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>As a curator of both your classroom and your home, you know that the right tools make all the difference. Your work bag isn’t just a carrier; it’s an extension of your professional identity. That is why we are obsessed with our new leather laptop tote. Designed for the modern woman who balances a hectic teaching schedule with a refined aesthetic, this bag offers the perfect harmony of form and function. With its waterproof exterior, it protects your tech from unexpected spills or rainy commutes, while the spacious interior ensures your planner, laptop, and essentials stay perfectly organized. It’s not just about utility; it’s about arriving at your destination feeling prepared and looking polished. Whether you are prepping for a parent-teacher conference or heading to a design meeting, this tote ensures you carry your essentials with unparalleled grace. Elevate your daily routine with a staple piece built for your ambitious life.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge"> high-quality chiffon</div>
+        <img src="posts/"desc":"Elevate your professional wardrobe with our soft" class="product-img" alt=" these pieces provide a sophisticated drape that feels effortless to style. The subtle gradient effect adds a touch of artistic flair to your professional attire without being overwhelming. Whether you are leading a classroom discussion or curating a beautiful home space">
+        <div class="card-content">
+            <h3> these pieces provide a sophisticated drape that feels effortless to style. The subtle gradient effect adds a touch of artistic flair to your professional attire without being overwhelming. Whether you are leading a classroom discussion or curating a beautiful home space</h3>
+            <p class="price"> this hijab offers the perfect balance of modesty  breathability</p>
+            
+            <div class="action-bar">
+                <a href=" and elegance. Discover how our latest collection can simplify your morning routine while elevating your signature look. Visit our shop to find the color that complements your unique style today.,{"pinterest":{"title":"Elegant Gradient Chiffon Hijab for Teachers"" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest(' and elegance. Discover how our latest collection can simplify your morning routine while elevating your signature look. Visit our shop to find the color that complements your unique style today.,{"pinterest":{"title":"Elegant Gradient Chiffon Hijab for Teachers"', ' flowy gradient chiffon hijab. Perfect for the classroom', ' these pieces provide a sophisticated drape that feels effortless to style. The subtle gradient effect adds a touch of artistic flair to your professional attire without being overwhelming. Whether you are leading a classroom discussion or curating a beautiful home space')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss Picks</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-Crafted from lightweight">Prompt not available.</code>
+                        <button onclick="copyToClipboard('mj-Crafted from lightweight')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-Crafted from lightweight">Prompt not available.</code>
+                        <button onclick="copyToClipboard('rw-Crafted from lightweight')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-Crafted from lightweight">Caption coming soon.</p>
+                    <button class="small-copy" onclick="copyText('tk-Crafted from lightweight')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p> this breathable fabric offers both comfort and sophisticated style."</p>
+            </div>
+            <div class="date">Featured on Crafted from lightweight</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Modest Fashion</div>
+        <img src="posts/frame1_v1_366045956310_635838081217_branded.jpg" class="product-img" alt="Gradient Color Chiffon Hijab Scarf Muslim Islamic Fashion Headscarf Shawls Hijab">
+        <div class="card-content">
+            <h3>Gradient Color Chiffon Hijab Scarf Muslim Islamic Fashion Headscarf Shawls Hijab</h3>
+            <p class="price">15.97 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/23kkvvaw" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/23kkvvaw', 'https://i.ibb.co/fzHc3ZPy/938d74269aae.jpg', 'Gradient Color Chiffon Hijab Scarf Muslim Islamic Fashion Headscarf Shawls Hijab')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss Picks</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">Prompt not available.</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Prompt not available.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">Caption coming soon.</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>As a teacher or home curator, your daily wardrobe needs to be as functional as it is beautiful. At littlniss, we understand that finding a hijab that transitions seamlessly from a busy morning of teaching to an afternoon of creative projects is essential. Our new Gradient Color Chiffon Hijab collection was curated specifically for this purpose. </p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Tech Gadgets</div>
+        <img src="posts/frame1_v1_389881341589_0_branded.jpg" class="product-img" alt="Portable Charger 10000mAh Magnetic Power Bank 22.5W Fast Charging Rose Pink Led">
+        <div class="card-content">
+            <h3>Portable Charger 10000mAh Magnetic Power Bank 22.5W Fast Charging Rose Pink Led</h3>
+            <p class="price">59.99 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/2b3wprpo" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/2b3wprpo', 'https://i.ibb.co/WWbkhb84/6658720b6abf.jpg', 'Chic Rose Pink Portable Magnetic Charger')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Tech & Gadgets</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">High-end editorial product photography of a rose pink 10000mAh magnetic power bank, minimalist aesthetic, soft natural morning sunlight, placed on a white marble desk with a neutral linen journal and a gold pen, 8k resolution, photorealistic, shallow depth of field, sophisticated professional vibe.</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic slow-motion close-up, panning across the smooth matte texture of a rose pink power bank, soft bokeh background of a tidy home office, elegant lighting, fluid camera movement, 4k, hyper-realistic.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">POV: You found the aesthetic power bank of your dreams. 🌸✨ Fast charging for the busy curator. #TeacherTech #AestheticDesk #DeskSetup #MustHaves #Organization #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>In the fast-paced world of teaching and home curation, staying powered up is non-negotiable. But who says utility can’t be beautiful? Our new Rose Pink Magnetic Power Bank perfectly bridges the gap between high-performance tech and elegant design. With 22.5W fast charging and a sleek 10000mAh capacity, it ensures your devices stay ready for your next lesson plan or inspiration board. We designed this for the modern curator—someone who appreciates a clutter-free workspace and tools that look as good as they perform. No more tangled cords or bulky chargers ruining your aesthetic. Whether you're heading to the classroom or moving from your office to the kitchen counter, this charger is the ultimate companion for the sophisticated multitasker. Elevate your daily routine with a touch of rose pink elegance—because your tech should feel just as curated as your home.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Eco Kitchen</div>
+        <img src="posts/frame1_v1_406793153336_0_branded.jpg" class="product-img" alt="Beeswax Wraps for Food – Reusable Beeswax Bread Bag & Sandwich Wrap, Organic &">
+        <div class="card-content">
+            <h3>Beeswax Wraps for Food – Reusable Beeswax Bread Bag & Sandwich Wrap, Organic &</h3>
+            <p class="price">9.51 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/234fqgsn" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/234fqgsn', 'https://i.ibb.co/QFrF89R0/bc9006cb1385.jpg', 'Sustainable Kitchen Essentials: Organic Beeswax Bread Bags')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Home & Curation</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">High-end editorial product photography, minimalist kitchen countertop, organic beeswax bread bag and sandwich wrap folded neatly, soft natural morning sunlight, linen textures, neutral beige and cream color palette, 8k resolution, photorealistic, cinematic lighting, shot on 35mm lens --ar 4:5</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic slow-motion close-up of a hand gently placing a crusty loaf of bread into a beige beeswax bread bag, soft natural light, shallow depth of field, elegant and high-end aesthetic, 4k.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">POV: You finally swapped plastic for these gorgeous organic beeswax wraps. Your kitchen upgrade starts here. 🍯✨🥖 #ecofriendly #kitchenhacks #littlniss #sustainability #homedecor #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>Creating a home that feels both professional and sustainable is an art form. At littlniss, we believe that the tools we use daily should reflect our values without sacrificing style. That is why we are currently obsessed with organic beeswax bread bags and sandwich wraps. Not only do they keep your artisanal sourdough and fresh lunches crisp, but they also replace the clutter of plastic wrap with a clean, earthy aesthetic. These wraps are a staple for the conscious curator, bridging the gap between practical kitchen storage and elegant interior design. By making small, intentional swaps in your kitchen, you create a more mindful environment for yourself and your family. Whether you are a teacher prepping a school lunch or a home curator organizing your weekend pantry, these reusable essentials are a must-have for a sophisticated, eco-conscious lifestyle. Elevate your daily routine with a touch of nature-inspired luxury.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Home Decor</div>
+        <img src="posts/frame1_v1_406914879807_677120328514_branded.jpg" class="product-img" alt="Woven Tufted Boho Throw Pillow Cover, Modern Decorative ometric Chevron">
+        <div class="card-content">
+            <h3>Woven Tufted Boho Throw Pillow Cover, Modern Decorative ometric Chevron</h3>
+            <p class="price">22.09 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/2b2kmou6" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/2b2kmou6', 'https://i.ibb.co/35nF9MsN/e6714f0e38f5.jpg', 'Modern Boho Woven Tufted Throw Pillow Cover')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Home & Curation</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">High-end editorial product photography of a single woven tufted throw pillow with a geometric chevron pattern, neutral cream and charcoal color palette, resting on a textured minimalist beige linen sofa, soft natural morning sunlight streaming through a window, shallow depth of field, 8k resolution, photorealistic, interior design magazine style --ar 4:5 --v 6.0</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic 5-second slow-motion shot, extreme close-up of a hand gently brushing over the soft texture of a tufted chevron pillow, soft focus background, elegant lighting, fluid camera movement, high quality, 4k.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">Soft textures and geometric lines—the ultimate cozy upgrade. Which corner of your home needs a refresh? ✨☁️🛋️ #bohohomedecor #homestyle #decorinspo #littlniss #interiorstyling #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>Creating a home that feels both professional and inviting is an art form. At littlniss, we believe the secret lies in the details. Our new Woven Tufted Boho Throw Pillow Cover is the perfect embodiment of this balance. With its sophisticated geometric chevron pattern and soft, high-quality woven texture, it brings an immediate sense of warmth to any room without cluttering the aesthetic. Whether you are styling a reading nook for after-school unwinding or refining your main living area for guest-ready appeal, these pillow covers offer a timeless, artisanal touch. The neutral palette ensures they pair perfectly with your existing furniture while the tufted details add that tactile layer that makes a house feel like a home. Elevate your curation today by swapping out your old basics for these textured statement pieces. Your space is your canvas; let’s make it beautiful together.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Teacher Stationery</div>
+        <img src="posts/frame1_v1_147294927332_0_branded.jpg" class="product-img" alt="Montblanc Luxury Wood Grain Fountain Pen Gold Trim Medium VIP Gift Set">
+        <div class="card-content">
+            <h3>Montblanc Luxury Wood Grain Fountain Pen Gold Trim Medium VIP Gift Set</h3>
+            <p class="price">279.00 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/229usbhz" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/229usbhz', 'https://i.ibb.co/6cmjDggr/af881949652e.jpg', 'Elevate Your Desk with Montblanc Luxury')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Learning & Teachers</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">Editorial product photography of a Montblanc wood grain fountain pen with gold trim, resting on a textured minimalist oak desk, soft sunlight streaming through a window, deep shadows, 8k, photorealistic, professional lighting, cinematic composition, high-end stationery aesthetic --ar 4:5 --v 6.0</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic slow-motion close-up of a hand gracefully removing the cap of a luxury wood grain fountain pen, golden light reflecting on the gold trim, soft-focus background of a home office, elegant movement, 4k.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">POV: You finally found the pen that matches your aesthetic. 🖊️✨ Elevate your grading game. 💼 #littlniss #teacherstyle #deskgoals #montblanc #stationery #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>In the world of home curation and professional teaching, it is often the small details that make the most significant impact. At littlniss, we believe your tools should reflect your dedication and your aesthetic. This Montblanc Luxury Wood Grain Fountain Pen set is more than just a writing instrument; it is a statement piece. Crafted with a rich, wood-grain finish and accented with classic gold trim, it balances organic warmth with sophisticated luxury. Whether you are grading papers, signing important documents, or journaling in your home office, the weight and flow of a Montblanc pen transform simple tasks into a deliberate, mindful experience. For the educator who values professional style and the art of curation, this set is the ultimate investment in your daily workflow. Elevate your desk, elevate your focus, and bring a touch of timeless elegance to every word you write.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Ergonomic Gear</div>
+        <img src="posts/frame1_v1_389267321205_0_branded.jpg" class="product-img" alt="Wireless Ergonomic Mouse, Vertical Mouse, Bluetooth Ergo Mouse, Quiet Click, 5 L">
+        <div class="card-content">
+            <h3>Wireless Ergonomic Mouse, Vertical Mouse, Bluetooth Ergo Mouse, Quiet Click, 5 L</h3>
+            <p class="price">39.57 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/27m6l4my" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/27m6l4my', 'https://i.ibb.co/5wc38Rt/aa9ce006b6e7.jpg', 'Upgrade Your Desk With This Ergonomic Mouse')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Tech & Gadgets</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">A high-end, editorial product shot of a minimalist matte vertical ergonomic mouse, soft natural morning sunlight, clean beige linen surface, wooden desk backdrop, professional photography, 8k resolution, cinematic lighting, shallow depth of field --ar 4:5</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic 5-second slow-motion reveal of a sleek vertical wireless mouse rotating slightly on a clean, minimalist oak desk, soft sunlight, shallow depth of field, high-end professional aesthetic.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">The desk upgrade your wrist has been waiting for. 🖱️✨ Quiet, ergonomic, and aesthetic. #littlniss #desksetup #teacherhacks #productivity #ergonomic #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>As professional curators of our own spaces, we often focus on aesthetics, but comfort is the true cornerstone of a productive environment. Whether you are grading papers late into the evening or managing your home office, wrist strain is a distraction no one needs. Our new Wireless Ergonomic Mouse is designed to blend seamlessly into your minimalist curation while providing the anatomical support your body deserves. With its quiet-click technology, it ensures your flow remains uninterrupted and your workspace stays peaceful. We believe that professional tools should not only be high-performing but also visually sophisticated. By choosing an ergonomic vertical design, you aren’t just buying a gadget; you are making a long-term investment in your health and daily focus. Elevate your desk setup with a piece that balances elegant form with effortless, pain-free function. Your wrist—and your workspace—will thank you.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Boho Eucalyptus Classroom</div>
+        <img src="posts/frame1_v1_358031660137_0_branded.jpg" class="product-img" alt="Containlol Borders for Bulletin Board Decoration, 118 ft Green Eucalyptus Sca...">
+        <div class="card-content">
+            <h3>Containlol Borders for Bulletin Board Decoration, 118 ft Green Eucalyptus Sca...</h3>
+            <p class="price">22.39 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/2bulz42t" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/2bulz42t', 'https://i.ibb.co/ZzgXm9fn/062c876946eb.jpg', 'Boho Eucalyptus Classroom Bulletin Board Borders')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Learning & Teachers</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">Editorial product photography of eucalyptus green scalloped bulletin board borders, aesthetic boho classroom setting, soft morning sunlight, minimalist desk background, 8k, photorealistic, high-end interior design style, neutral color palette, sharp focus --ar 4:5</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic slow-motion close-up, camera glides smoothly across textured eucalyptus green scalloped paper border on a clean white wall, soft natural light, high-end professional atmosphere.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">POV: You finally upgraded your classroom aesthetic with the perfect eucalyptus trim. 🌿✨ Professional, calm, and chic. #classroommakeover #teacherlife #bohoclassroom #littlniss #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>Creating a professional and serene classroom environment is essential for both student focus and teacher well-being. At littlniss, we believe that your surroundings should reflect your dedication to elegance and organization. Our new Containlol Eucalyptus Borders are the perfect addition for those who crave a minimalist, nature-inspired aesthetic. Measuring 118 feet, this set provides ample length to trim all your bulletin boards, door frames, and whiteboards with a cohesive, professional finish. The subtle green hues of the eucalyptus leaves paired with the classic scalloped edge offer a timeless look that avoids the 'over-cluttered' feel of traditional classroom decorations. Whether you are setting up a classroom or curating a workspace at home, these borders serve as a sophisticated foundation for your displays. Elevate your learning space today and embrace the calming power of botanical design. Your classroom is your canvas—let’s make it a beautiful one.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Stationery</div>
+        <img src="posts/frame1_v1_358132223370_0_branded.jpg" class="product-img" alt="Value Sticker Pack – 850+ Small Aesthetic Stickers for Planner, Journal & Cal...">
+        <div class="card-content">
+            <h3>Value Sticker Pack – 850+ Small Aesthetic Stickers for Planner, Journal & Cal...</h3>
+            <p class="price">11.88 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/288zxpqu" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/288zxpqu', 'https://i.ibb.co/LznvTnh4/9338411714f3.jpg', '850+ Aesthetic Planner Stickers for Organization')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Learning & Teachers</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">High-end editorial product photography of a premium stationery sticker pack, 850+ pieces, soft natural morning sunlight, minimalist workspace background, clean aesthetic, depth of field, 8k resolution, photorealistic, elegant stationery styling --ar 4:5 --v 6.0</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic 5-second slow-motion reveal of a hand gently fanning out aesthetic planner stickers across a high-quality leather desk mat, soft bokeh, professional lighting, elegant atmosphere.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">850+ stickers for the ultimate aesthetic planner setup. Stay organized in style. ✨📖🖋️ #littlniss #plannercommunity #stationeryhaul #aesthetic #studymotivation #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>In the fast-paced world of teaching and home curation, staying organized shouldn't feel like a chore. At littlniss, we believe that the tools you use should inspire you. Our new Value Sticker Pack is more than just adhesive art; it is a system for clarity. With over 850 individual pieces, this collection is designed to help you categorize, prioritize, and beautify your daily schedule with ease. Whether you are highlighting important grading deadlines, marking essential home maintenance tasks, or simply adding a touch of elegance to your weekly spread, these stickers offer the perfect balance of form and function. By turning your planner into a visual reflection of your goals, you create space for more intentional living. Discover how a few simple, well-placed stickers can change the way you approach your day. Elevate your desk, organize your thoughts, and find joy in the details.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge">Educational Toys</div>
+        <img src="posts/frame1_v1_168364548613_0_branded.jpg" class="product-img" alt="Puzzles for Kids Ages 3-5 Toddler Wooden Toys Montessori Learning Education Pres">
+        <div class="card-content">
+            <h3>Puzzles for Kids Ages 3-5 Toddler Wooden Toys Montessori Learning Education Pres</h3>
+            <p class="price">12.95 USD</p>
+            
+            <div class="action-bar">
+                <a href="https://tinyurl.com/27gsfct8" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('https://tinyurl.com/27gsfct8', 'https://i.ibb.co/gZ21VSYC/8869c0a7e663.jpg', 'Montessori Wooden Puzzles for Toddler Development')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss | Learning & Teachers</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-592026">Editorial product photography of a premium wooden toddler puzzle set, minimalist design, soft natural lighting, neutral beige and cream color palette, high-end materials, 8k, photorealistic, shallow depth of field, Scandinavian home interior background --ar 4:5 --v 6.0</code>
+                        <button onclick="copyToClipboard('mj-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-592026">Cinematic 5-second slow-motion close-up, soft sunlight streaming over wooden puzzle pieces being gently placed into their frame, elegant and serene atmosphere, high-end tactile texture, shallow depth of field.</code>
+                        <button onclick="copyToClipboard('rw-592026')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-592026">POV: You’ve finally found aesthetic toys that don’t clutter your space. 🧩☁️✨ #littlniss #Montessori #ToddlerToys #ClassroomEssentials #MinimalistHome #ad</p>
+                    <button class="small-copy" onclick="copyText('tk-592026')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>In an era of over-stimulation and plastic noise, returning to the basics of play is a breath of fresh air. At littlniss, we believe that educational tools should be as beautiful as they are functional. Our curated Montessori wooden puzzles for ages 3-5 aren't just toys; they are essential cognitive development tools designed to foster concentration, spatial awareness, and fine motor skills. Crafted from sustainable wood, these puzzles fit perfectly into a thoughtfully curated home, proving that learning doesn't have to sacrifice style. By choosing toys that invite focus rather than distraction, you are setting the stage for deeper engagement and calmer playtimes. Whether you are a teacher looking to enrich your classroom or a parent creating a peaceful learning environment at home, these puzzles are an investment in your child's developmental journey. Embrace simplicity, encourage discovery, and watch your little ones flourish through intentional play.</p>
+            </div>
+            <div class="date">Featured on 5/9/2026</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="niche-badge"> this 10000mAh charger doesn't just look like a high-end accessory—it performs like one. With enough capacity to keep your iPhone charged through the longest days</div>
+        <img src="posts/"altText":"A minimalist white power bank on a clean marble desk next to an iPhone" class="product-img" alt=" it bridges the gap between style and utility. Gone are the days of clunky">
+        <div class="card-content">
+            <h3> it bridges the gap between style and utility. Gone are the days of clunky</h3>
+            <p class="price"> unsightly tech that ruins the look of your curated handbag. This power bank fits seamlessly into your daily rotation  ensuring you’re always ready to capture inspiration or manage your schedule. It’s time to upgrade your daily carry with tech that is as professional and elegant as you are.,{"pinterest":{"title":"The Ultimate Sleek Fast-Charging Portable Power Bank"</p>
+            
+            <div class="action-bar">
+                <a href=""desc":"Keep your devices charged on the go with this 22.5W fast-charging power bank. Perfect for busy teachers and home curators who need reliable tech that matches their aesthetic."" class="btn btn-primary" target="_blank">Shop Now</a>
+                <div class="pin-wrap">
+                    <button class="btn btn-secondary" onclick="pinToPinterest('"desc":"Keep your devices charged on the go with this 22.5W fast-charging power bank. Perfect for busy teachers and home curators who need reliable tech that matches their aesthetic."', ' professional tech aesthetic."', ' it bridges the gap between style and utility. Gone are the days of clunky')">📌 Pin It</button>
+                    <div class="board-hint">Board: <b>littlniss Picks</b></div>
+                </div>
+            </div>
+
+            <div class="ai-studio">
+                <div class="studio-header">
+                    <h4>✨ AI Creative Studio</h4>
+                    <button class="gen-btn" onclick="alert('Runway/Midjourney API integration pending. Using prompts for manual generation...')">Generate AI Media</button>
+                </div>
+                <div class="prompt-box">
+                    <label>Midjourney (Editorial Shot)</label>
+                    <div class="copy-wrap">
+                        <code id="mj-Designed with a minimalist aesthetic">Prompt not available.</code>
+                        <button onclick="copyToClipboard('mj-Designed with a minimalist aesthetic')">Copy</button>
+                    </div>
+                </div>
+                <div class="prompt-box">
+                    <label>Runway (Video Reveal)</label>
+                    <div class="copy-wrap">
+                        <code id="rw-Designed with a minimalist aesthetic">Prompt not available.</code>
+                        <button onclick="copyToClipboard('rw-Designed with a minimalist aesthetic')">Copy</button>
+                    </div>
+                </div>
+                <div class="caption-box">
+                    <label>TikTok / Reels Caption</label>
+                    <p id="tk-Designed with a minimalist aesthetic">Caption coming soon.</p>
+                    <button class="small-copy" onclick="copyText('tk-Designed with a minimalist aesthetic')">Copy Caption</button>
+                </div>
+            </div>
+
+            <div class="blog-preview">
+                <p>"suggestedBoard":"littlniss | Tech & Gadgets"}</p>
+            </div>
+            <div class="date">Featured on Designed with a minimalist aesthetic</div>
+        </div>
+      </div>
+    
+    </div>
+    <footer>
+        <p>&copy; 2026 littlniss Curator | Empowering Creators with AI</p>
+    </footer>
+</body>
+</html>
+  

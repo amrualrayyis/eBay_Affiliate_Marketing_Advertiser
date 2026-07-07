@@ -1,0 +1,107 @@
+[
+  {
+    "category": "Fashion",
+    "name": "Modest Fashion",
+    "query": "green Hijab fashion -Burqa -Niqab",
+    "color": 3066993,
+    "branding": "🌟 littlniss Style Pick"
+  },
+  {
+    "category": "Tech",
+    "name": "Tech Gadgets",
+    "query": "portable charger fast charging -used -broken",
+    "color": 3447003,
+    "branding": "⚡ littlniss Tech Find"
+  },
+  {
+    "category": "Home",
+    "name": "Home Decor",
+    "query": "boho throw pillow cover -used",
+    "color": 15105570,
+    "branding": "🏡 littlniss Home Decor"
+  },
+  {
+    "category": "Professional",
+    "name": "Stationery",
+    "query": "aesthetic planner stickers -used",
+    "color": 15844367,
+    "branding": "📝 littlniss Desk Essentials"
+  },
+  {
+    "category": "Learning",
+    "name": "Educational Toys",
+    "query": "montessori wooden puzzles -used",
+    "color": 1752220,
+    "branding": "🧸 littlniss Learning"
+  },
+  {
+    "category": "Home",
+    "name": "Eco Kitchen",
+    "query": "reusable beeswax wraps -used",
+    "color": 1146986,
+    "branding": "🌿 littlniss Green Home"
+  },
+  {
+    "category": "Learning",
+    "name": "Vintage Books",
+    "query": "classic children books leather bound -used",
+    "color": 8421504,
+    "branding": "📚 littlniss Library"
+  },
+  {
+    "category": "Professional",
+    "name": "Ergonomic Gear",
+    "query": "ergonomic wireless mouse quiet click -used",
+    "color": 3447003,
+    "branding": "🖱️ littlniss Productivity"
+  },
+  {
+    "category": "Professional",
+    "name": "Classroom Decor",
+    "query": "vintage educational posters linen -used",
+    "color": 15105570,
+    "branding": "🎨 littlniss Classroom"
+  },
+  {
+    "category": "Professional",
+    "name": "Teacher Stationery",
+    "query": "luxury fountain pen set -used",
+    "color": 10181046,
+    "branding": "✍️ littlniss Writing"
+  },
+  {
+    "category": "Fashion",
+    "name": "Professional Bags",
+    "query": "leather laptop tote bag teacher -used",
+    "color": 7419530,
+    "branding": "👜 littlniss Carryall"
+  },
+  {
+    "category": "Fashion",
+    "name": "Butter Yellow Modest Chic",
+    "query": "butter yellow maxi dress -used -broken -parts -pre-owned",
+    "color": 16773222,
+    "branding": "🍋 littlniss Chic"
+  },
+  {
+    "category": "Home & Decor",
+    "name": "Boho Eucalyptus Classroom",
+    "query": "eucalyptus classroom decor -used -broken -parts -vintage",
+    "color": 8436577,
+    "branding": "🌿 littlniss Classroom"
+  },
+  {
+    "category": "Office & Supplies",
+    "name": "Teacher Productivity Toolkit",
+    "query": "personalized whiteboard eraser -used -broken -parts -custom",
+    "color": 14737632,
+    "branding": "🍎 littlniss Teach"
+  },
+  {
+    "category": "Gadgets",
+    "name": "Trending Sensory Fidgets",
+    "query": "NeeDoh Nice Cubes -used -broken -parts -lot",
+    "color": 5744570,
+    "branding": "✨ littlniss Gadgets"
+  }
+]
