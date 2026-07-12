@@ -1,14 +1,24 @@
 {
-  "name": "gemini-cli",
+  "name": "ai-affiliate-content-pipeline",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Modular eBay discovery, Gemini content generation, image processing, and Discord delivery pipeline.",
+  "main": "auto-deals-bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "daily": "node auto-deals-bot.js",
+    "weekly": "node research-niches.js && node competitor-monitor.js && node ceo-report.js && node build-newsletter.js",
+    "report": "node ceo-report.js",
+    "test": "node --test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "nodejs",
+    "automation",
+    "ebay-api",
+    "gemini",
+    "discord",
+    "image-processing"
+  ],
+  "author": "Amru Alrayyis",
+  "license": "MIT",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "adm-zip": "^0.5.17",
